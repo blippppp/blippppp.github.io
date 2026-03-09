@@ -1,104 +1,120 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Kingsly Roche</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kingsly Roche — Data & Engineering</title>
+  <meta name="description" content="Kingsly Roche — Azure Data Engineer. Links to projects, certifications and contact." />
+  <style>
+    :root{
+      --bg:#f6f7f9;
+      --card:#ffffff;
+      --text:#0f172a;
+      --muted:#6b7280;
+      --accent:#059669;
+      --radius:12px;
+      --maxw:720px;
+      --gap:12px;
+      font-family: "Inter var", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color-scheme: light dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      min-height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(180deg,#ffffff,#f1f5f9);
+      padding:24px;
+      color:var(--text);
+    }
+    .card{
+      width:100%;
+      max-width:var(--maxw);
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:24px;
+      box-shadow:0 8px 30px rgba(16,24,40,0.06);
+      border:1px solid rgba(0,0,0,0.04);
+    }
+    header{display:flex;align-items:center;justify-content:space-between;gap:var(--gap)}
+    h1{margin:0;font-size:1.25rem}
+    .meta{color:var(--muted);font-size:.95rem}
+    nav ul{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:12px 0 0 0;list-style:none}
+    nav a{
+      display:inline-block;padding:8px 12px;border-radius:999px;
+      text-decoration:none;color:var(--text);border:1px solid rgba(0,0,0,0.06);
+      background:transparent;font-weight:500;
+    }
+    .section{margin-top:18px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
+    small{color:var(--muted)}
+    a:focus{outline:3px solid rgba(5,150,105,0.12);outline-offset:3px}
+    @media (prefers-color-scheme:dark){
+      :root{--bg:#071023;--card:#071426;--text:#e6eef6;--muted:#9aa6b2}
+      body{background:linear-gradient(180deg,#071023,#071426)}
+    }
+  </style>
+  <script>
+    async function updateCounter(){
+      const el = document.getElementById('counter');
+      if(!el) return;
+      el.textContent = '…';
+      try{
+        const r = await fetch('https://lzfxk8pfi3.execute-api.us-east-1.amazonaws.com/Prod/count/', {cache:'no-cache'});
+        if(!r.ok) throw new Error('network');
+        const text = await r.text();
+        let data;
+        try { data = JSON.parse(text); } catch(e) { data = text; }
+        const count = (data && (data.Count ?? data.count)) ?? data;
+        el.textContent = String(count ?? '—');
+      } catch(e){
+        el.textContent = '—';
+        console.warn('counter', e);
+      }
+    }
+    document.addEventListener('DOMContentLoaded', updateCounter);
+  </script>
 </head>
-<script>
-
-   fetch("https://lzfxk8pfi3.execute-api.us-east-1.amazonaws.com/Prod/count/")
-      .then(response => response.text())
-      .then((body) => {
-         var obj = JSON.parse(body);
-         document.getElementById("counter").innerHTML = obj.Count
-      })
-      .catch(function (error) {
-         console.log(error);
-      });
-
-
-</script>
-<style>
-   body {
-      border: 10px solid rgb(73, 64, 64);
-      margin: 0px;
-      padding: 1%;
-   }
-</style>
-
 <body>
-   <h1>Kingsly Roche</h1>
-   <div align="right">
-      <h3>total visits: <span id="counter">Fetching...</span></h3>
-   </div>
-   <hr>
-  
-   <hr>
-   <h2>connect.</h2>
-   <ul>
-      <li>
-         <p>Medium <a href="https://kingslyroche.medium.com/">[kingslyroche.medium.com]</a></p>
-      </li>
-      <li>
-         <p>Github <a href="https://github.com/kingslyroche">[github.com/kingslyroche]</a></p>
-      </li>
-      <li>
-         <p>Twitter <a href="https://twitter.com/kingslyroche">[twitter.com/kingslyroche]</a></p>
-      </li>
-      <li>
-         <p>Mail <a href="mailto:kingslyroche@gmail.com">[send email]</a></p>
-      </li>
-   </ul>
-   <hr>
-   <h2>certifications.</h2>
-   <ul>
-      <li>
-         <p>Microsoft Certified: Azure Data Engineer Associate <a
-               href="https://www.credly.com/badges/5c3cbc2c-4a2c-4c09-a5e1-135438daf216/public_url">[verify]</a>
-         </p>
-      </li>
-      <li>
-         <p>Microsoft Certified: Azure Data Fundamentals <a
-               href="https://www.credly.com/badges/e99c719e-3ae5-4f4c-8478-e6a67bddf7e5/public_url">[verify]</a>
-         </p>
-      </li>
-      <li>
-         <p>Snowflake: Hands On Essentials - Data Warehouse <a
-               href="https://www.credly.com/badges/6204a7ca-d460-40ea-b3e6-db88c15ef37a/public_url">[verify]</a>
-         </p>
-      </li>
+  <main class="card" role="main">
+    <header>
+      <h1>Kingsly Roche</h1>
+      <div class="meta"><small>total visits <span id="counter" aria-live="polite">Fetching...</span></small></div>
+    </header>
 
-   </ul>
+    <p class="meta section">Azure Data Engineer — writing on data & engineering.</p>
 
-   <hr>
-   <h2>projects. no free heroku any more 😭😭. go to <a href="https://github.com/kingslyroche">[Here]</a> </h2>
-   <ul>
-      <li>
-         <p>It's You! <a href="https://itsyou.herokuapp.com/">[itsyou.herokuapp.com]💀</a></p>
-      </li>
-      <li>
-         <p>iris species classifier <a
-               href="https://iris-classifier-logit.herokuapp.com/">[iris-classifier-logit.herokuapp.com] 💀</a></p>
-      </li>
-      <li>
-         <p>Tweet Sentiments <a href="https://tweetsent.herokuapp.com/">[tweetsent.herokuapp.com]💀</a></p>
-      </li>
-      <li>
-         <p>Weather <a href="http://kingslyroche.pythonanywhere.com/">[weatherapp]✔️</a></p>
-      </li>
-      <li>
-         <p>Draw <a href="https://drawjs.netlify.app/">[drawjs]✔️</a></p>
-      </li>
-      <li>
-         <p>Task <a href="https://doyourtasks.herokuapp.com/">[doyourtasks.herokuapp.com]💀</a></p>
-      </li>
-   </ul>
+    <nav class="section" aria-label="Connect">
+      <ul>
+        <li><a href="https://kingslyroche.medium.com" rel="noopener">Medium</a></li>
+        <li><a href="https://github.com/kingslyroche" rel="noopener">GitHub</a></li>
+        <li><a href="https://twitter.com/kingslyroche" rel="noopener">Twitter</a></li>
+        <li><a href="mailto:kingslyroche@gmail.com">Email</a></li>
+      </ul>
+    </nav>
 
-   <hr>
+    <section class="section" aria-labelledby="projects-title">
+      <h2 id="projects-title" style="margin:0 0 8px 0;font-size:1rem">Projects</h2>
+      <div class="grid">
+        <a href="https://github.com/kingslyroche" rel="noopener">All projects on GitHub →</a>
+        <a href="https://drawjs.netlify.app" rel="noopener">Draw</a>
+        <a href="http://kingslyroche.pythonanywhere.com" rel="noopener">Weather</a>
+      </div>
+    </section>
 
+    <section class="section" aria-labelledby="certs-title">
+      <h2 id="certs-title" style="margin:12px 0 8px 0;font-size:1rem">Certifications</h2>
+      <ul style="margin:0;padding-left:1.2rem;color:var(--muted);">
+        <li>Azure Data Engineer Associate — <a href="https://www.credly.com" rel="noopener">verify</a></li>
+        <li>Azure Data Fundamentals — <a href="https://www.credly.com" rel="noopener">verify</a></li>
+      </ul>
+    </section>
 
+    <footer class="section" style="margin-top:18px"><small>© <span id="year"></span> Kingsly Roche</small></footer>
+  </main>
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
 </body>
-
 </html>
