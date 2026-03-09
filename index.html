@@ -3,20 +3,19 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Kingsly Roche — Data & Engineering</title>
-  <meta name="description" content="Kingsly Roche — Azure Data Engineer. Links to projects, certifications and contact." />
+  <title>Kingsly Roche — Data Engineer</title>
+  <meta name="description" content="Kingsly Roche — Data Engineer with 8+ years experience in GCP, BigQuery, Ab Initio, Hadoop, SQL." />
   <style>
     :root{
-      --bg:#f6f7f9;
-      --card:#ffffff;
-      --text:#0f172a;
-      --muted:#6b7280;
-      --accent:#059669;
+      --bg:#071023;
+      --card:#071426;
+      --text:#e6eef6;
+      --muted:#9aa6b2;
+      --accent:#10b981;
       --radius:12px;
       --maxw:720px;
       --gap:12px;
-      font-family: "Inter var", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      color-scheme: light dark;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
@@ -26,7 +25,7 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      background:linear-gradient(180deg,#ffffff,#f1f5f9);
+      background:linear-gradient(180deg,#071023,#071426);
       padding:24px;
       color:var(--text);
     }
@@ -39,23 +38,20 @@
       box-shadow:0 8px 30px rgba(16,24,40,0.06);
       border:1px solid rgba(0,0,0,0.04);
     }
-    header{display:flex;align-items:center;justify-content:space-between;gap:var(--gap)}
-    h1{margin:0;font-size:1.25rem}
+    header{display:flex;align-items:center;justify-content:space-between;gap:var(--gap);flex-wrap:wrap}
+    h1{margin:0;font-size:1.5rem}
     .meta{color:var(--muted);font-size:.95rem}
-    nav ul{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:12px 0 0 0;list-style:none}
-    nav a{
-      display:inline-block;padding:8px 12px;border-radius:999px;
-      text-decoration:none;color:var(--text);border:1px solid rgba(0,0,0,0.06);
-      background:transparent;font-weight:500;
+    .tagline{color:var(--muted);margin:8px 0 0 0}
+    .section{margin-top:20px}
+    h2{margin:0 0 8px 0;font-size:1rem;color:var(--text)}
+    .skills{display:flex;flex-wrap:wrap;gap:6px;margin:0}
+    .skill-tag{
+      padding:4px 10px;border-radius:999px;font-size:0.8rem;
+      background:rgba(16,185,129,0.15);color:var(--accent)
     }
-    .section{margin-top:18px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
+    .resume-link{display:inline-block;padding:10px 16px;background:rgba(5,150,105,0.1);border-radius:8px;color:var(--accent);font-weight:500;text-decoration:none}
     small{color:var(--muted)}
-    a:focus{outline:3px solid rgba(5,150,105,0.12);outline-offset:3px}
-    @media (prefers-color-scheme:dark){
-      :root{--bg:#071023;--card:#071426;--text:#e6eef6;--muted:#9aa6b2}
-      body{background:linear-gradient(180deg,#071023,#071426)}
-    }
+    a:focus{outline:3px solid rgba(16,185,129,0.3);outline-offset:3px}
   </style>
   <script>
     async function updateCounter(){
@@ -81,39 +77,44 @@
 <body>
   <main class="card" role="main">
     <header>
-      <h1>Kingsly Roche</h1>
+      <div>
+        <h1>Kingsly Roche</h1>
+        <p class="tagline">Data Engineer — 8+ years experience</p>
+        <p class="meta" style="margin:4px 0 0 0">Chennai, India</p>
+      </div>
       <div class="meta"><small>total visits <span id="counter" aria-live="polite">Fetching...</span></small></div>
     </header>
 
-    <p class="meta section">Azure Data Engineer — writing on data & engineering.</p>
-
-    <nav class="section" aria-label="Connect">
-      <ul>
-        <li><a href="https://kingslyroche.medium.com" rel="noopener">Medium</a></li>
-        <li><a href="https://github.com/kingslyroche" rel="noopener">GitHub</a></li>
-        <li><a href="https://twitter.com/kingslyroche" rel="noopener">Twitter</a></li>
-        <li><a href="mailto:kingslyroche@gmail.com">Email</a></li>
-      </ul>
-    </nav>
-
-    <section class="section" aria-labelledby="projects-title">
-      <h2 id="projects-title" style="margin:0 0 8px 0;font-size:1rem">Projects</h2>
-      <div class="grid">
-        <a href="https://github.com/kingslyroche" rel="noopener">All projects on GitHub →</a>
-        <a href="https://drawjs.netlify.app" rel="noopener">Draw</a>
-        <a href="http://kingslyroche.pythonanywhere.com" rel="noopener">Weather</a>
+    <section class="section">
+      <h2>Skills</h2>
+      <div class="skills">
+        <span class="skill-tag">GCP</span>
+        <span class="skill-tag">BigQuery</span>
+        <span class="skill-tag">Ab Initio</span>
+        <span class="skill-tag">Hadoop</span>
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Spark</span>
+        <span class="skill-tag">Unix</span>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="certs-title">
-      <h2 id="certs-title" style="margin:12px 0 8px 0;font-size:1rem">Certifications</h2>
-      <ul style="margin:0;padding-left:1.2rem;color:var(--muted);">
-        <li>Azure Data Engineer Associate — <a href="https://www.credly.com" rel="noopener">verify</a></li>
-        <li>Azure Data Fundamentals — <a href="https://www.credly.com" rel="noopener">verify</a></li>
-      </ul>
+    <section class="section">
+      <h2>Resume</h2>
+      <a href="Resume.pdf" class="resume-link" target="_blank" rel="noopener">View Resume (PDF)</a>
     </section>
 
-    <footer class="section" style="margin-top:18px"><small>© <span id="year"></span> Kingsly Roche</small></footer>
+    <section class="section">
+      <h2>Connect</h2>
+      <div class="skills">
+        <a href="https://github.com/kingslyroche" class="skill-tag" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com/in/kingslyroche" class="skill-tag" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://kingslyroche.medium.com" class="skill-tag" target="_blank" rel="noopener">Medium</a>
+        <a href="mailto:kingslyroche@gmail.com" class="skill-tag">Email</a>
+      </div>
+    </section>
+
+    <footer class="section" style="margin-top:24px"><small>© <span id="year"></span> Kingsly Roche</small></footer>
   </main>
   <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
 </body>
